@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from transformers import pipeline
 from flask_cors import CORS
@@ -10,6 +11,10 @@ classifier = pipeline("zero-shot-classification", model="distilbert-base-multili
 
 # Define possible categories
 CATEGORIES = ["website performance", "website layout", "support staff"]
+
+@app.route('/')
+def home():
+    return "Flask Backend is Running!"
 
 @app.route('/classify', methods=['POST'])
 def classify_feedback():
@@ -25,4 +30,5 @@ def classify_feedback():
     return jsonify({"classified": results})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
