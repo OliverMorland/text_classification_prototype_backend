@@ -1,0 +1,28 @@
+# Virtual environment
+venv/
+env/
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Logs & cache
+logs/
+*.log
+*.out
+*.err
+
+# Environment variables & sensitive files
+.env
+config.json
+secrets.json
+
+# Dependencies
+*.sqlite3
+*.db
+instance/
+requirements.txt.lock
+
+# MacOS & Windows system files
+.DS_Store
+Thumbs.db
