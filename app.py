@@ -22,10 +22,13 @@ def classify_feedback():
     feedback_list = data.get("feedback", [])
     results = []
     
+    # for feedback in feedback_list:
+    #     classification = classifier(feedback, CATEGORIES)
+    #     top_category = classification['labels'][0]  # Select the highest confidence category
+    #     results.append({"feedback": feedback, "category": top_category})
+    # Test response to check if speed issue is model-related
     for feedback in feedback_list:
-        classification = classifier(feedback, CATEGORIES)
-        top_category = classification['labels'][0]  # Select the highest confidence category
-        results.append({"feedback": feedback, "category": top_category})
+        results.append({"feedback": feedback, "category": "test-category"})
     
     return jsonify({"classified": results})
 
